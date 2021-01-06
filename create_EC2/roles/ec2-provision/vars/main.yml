@@ -1,0 +1,7 @@
+---
+# vars file for ec2-provision
+
+region: us-east-1c
+instance_type: t2.micro
+ami: ami-096fda3c22c1c990a
+project_name: EC2
