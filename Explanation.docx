@@ -1,0 +1,40 @@
+Ansible EC2 creation through Dynamic Inventory
+	 
+1. I have configured dynamic inventory to create ec2 instance.
+		 
+2. For Dynamic inventory, I have downloaded ec2.py and ec2.ini scripts, EC2 external inventory script and Ansible EC2 external inventory script settings.
+ 
+3. I have set environment variable for
+		export AWS_ACCESS_KEY_ID=<your_aws_access_key_id>
+		export  AWS_SECRET_ACCESS_KEY=<your_aws_secret_access_key>
+		 
+4.  We  need to set path for  
+		 
+        export  EC2_INI_PATH=/home/ubuntu/Assignment_Dev/create_EC2/dynamic_host/ec2.ini
+	export ANSIBLE_INVENTORY=/home/ubuntu/Assignment_Dev/create_EC2/dynamic_host/ec2.py
+	 
+	and make ec2.py script executable
+		chmod +x  /home/ubuntu/Assignment_Dev/create_EC2/dynamic_host/ec2.py
+
+5. Once above setup done just need to run ec2.py script it will fetch info about all the AWS resources which configured inside ec2.ini
+******************************************************************************************************************************************************
+ElasticSearch using Ansible playbook:
+ 
+1. Please have a look at attached ansible scrips ES_config.yml
+	In this playbook, download task and elastic source to source.list.d directory task are created.
+	 
+2. Installation of java, elasticsearch task are written.
+3. Configuration of elasticsearch and jvm option are set.
+
+ 
+4. Started elasticsearch service to reflect all the changes.
+	sudo systemctl start elasticsearch
+ 	curl -XGET 'localhost:9200/?pretty'
+ 
+5. For encrypted communication. X-Pack is an Elastic Stack plug-in that provides many add on features such as security, alerting, monitoring, reporting, and graph capabilities. 
+	 
+6.   just need to add only xpack.security.enabled: true into /etc/elasticsearch/elasticsearch.yml
+7 .  After Restarting The elasticsearch service, got the authentication.
+	curl -XGET 'localhost:9200/?pretty'
+8. Elastic Search has default username is elastic and password is changeme.
+
